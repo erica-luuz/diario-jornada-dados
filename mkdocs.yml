@@ -1,0 +1,48 @@
+site_name: Diário da Jornada de Dados
+site_description: Registro dos meus estudos em dados
+site_author: Erica Nicollas
+
+theme:
+  name: material
+  language: pt-BR
+  palette:
+    - scheme: default
+      primary: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Alternar para modo escuro
+    - scheme: slate
+      primary: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Alternar para modo claro
+  features:
+    - navigation.tabs
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+
+plugins:
+  - search:
+      lang:
+        - pt
+  - blog:
+      blog_dir: blog
+      post_date_format: long
+      archive: true
+      categories: true
+  - tags
+
+nav:
+  - Início: index.md
+  - Blog:
+      - blog/index.md
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - pymdownx.highlight
+  - pymdownx.superfences
+  - pymdownx.details
