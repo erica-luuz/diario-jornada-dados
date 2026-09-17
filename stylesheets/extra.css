@@ -286,6 +286,43 @@ h1, h2, h3, h4,
   margin: 0;
 }
 
+.diario-topic-card__count {
+  display: inline-block;
+  margin-top: 0.8rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--diario-blue-deep);
+}
+
+.diario-topic-card__count--empty {
+  color: var(--diario-text-secondary);
+  font-weight: 600;
+  font-style: italic;
+}
+
+.diario-topic-card--empty {
+  opacity: 0.6;
+  cursor: default;
+  border-top-style: dashed;
+}
+
+.diario-topic-card--empty:hover {
+  transform: none;
+  box-shadow: 0 2px 10px rgba(37, 59, 110, 0.08);
+}
+
+/* Grid da pagina Topicos (dentro da coluna de conteudo padrao) */
+.diario-topics-page__grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.1rem;
+  margin-top: 1.6rem;
+}
+
+@media screen and (max-width: 44.9375em) {
+  .diario-topics-page__grid { grid-template-columns: 1fr; }
+}
+
 /* ---------- Últimas anotações ---------- */
 .diario-notes__grid {
   display: grid;
