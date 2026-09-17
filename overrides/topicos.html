@@ -1,0 +1,51 @@
+{% extends "main.html" %}
+
+{% block content %}
+  <h1>Tópicos</h1>
+  <p>Os assuntos que venho estudando, organizados por tema. Tópicos com registros publicados podem ser abertos; os demais ainda estão a caminho.</p>
+
+  {% set blog_plugin = config.plugins.get("material/blog") %}
+  {% set category_counts = {} %}
+  {% set category_urls = {} %}
+  {% if blog_plugin %}
+    {% for post in blog_plugin.blog.posts %}
+      {% for cat in post.categories %}
+        {% set _ = category_counts.update({cat.title: category_counts.get(cat.title, 0) + 1}) %}
+        {% set _ = category_urls.update({cat.title: cat.url}) %}
+      {% endfor %}
+    {% endfor %}
+  {% endif %}
+
+  {% set topics = [
+    {"name": "Python", "icon": "material/language-python", "color": "#4F6FAE", "desc": "Manipulação de dados, automação e primeiros scripts."},
+    {"name": "SQL", "icon": "material/database", "color": "#253B6E", "desc": "Consultas, joins e boas práticas em bancos de dados."},
+    {"name": "Power BI", "icon": "material/monitor-dashboard", "color": "#E98268", "desc": "Dashboards, modelagem e visualização interativa."},
+    {"name": "Estatística", "icon": "material/chart-bell-curve", "color": "#4F6FAE", "desc": "Fundamentos que sustentam toda análise de dados."},
+    {"name": "Engenharia de Dados", "icon": "material/server-network", "color": "#253B6E", "desc": "Pipelines, ETL e organização de dados na origem."},
+    {"name": "Projetos", "icon": "material/folder-outline", "color": "#E98268", "desc": "Estudos de caso e aplicações práticas do que aprendo."},
+    {"name": "Visualização de Dados", "icon": "material/chart-areaspline", "color": "#253B6E", "desc": "Gráficos e painéis que contam histórias com clareza."},
+    {"name": "Carreira e Aprendizado", "icon": "material/school-outline", "color": "#4F6FAE", "desc": "Reflexões sobre estudo, transição e evolução profissional."}
+  ] %}
+
+  <div class="diario-topics-page__grid">
+    {% for topic in topics %}
+      {% set count = category_counts.get(topic.name, 0) %}
+      {% set cat_url = category_urls.get(topic.name) %}
+      {% if count > 0 and cat_url %}
+        <a class="diario-topic-card" style="--diario-topic-color:{{ topic.color }}" href="{{ cat_url | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/" ~ topic.icon ~ ".svg" %}</span>
+          <p class="diario-topic-card__title">{{ topic.name }}</p>
+          <p class="diario-topic-card__desc">{{ topic.desc }}</p>
+          <span class="diario-topic-card__count">{{ count }} {{ "registro" if count == 1 else "registros" }}</span>
+        </a>
+      {% else %}
+        <div class="diario-topic-card diario-topic-card--empty" style="--diario-topic-color:{{ topic.color }}">
+          <span class="diario-topic-card__icon">{% include ".icons/" ~ topic.icon ~ ".svg" %}</span>
+          <p class="diario-topic-card__title">{{ topic.name }}</p>
+          <p class="diario-topic-card__desc">{{ topic.desc }}</p>
+          <span class="diario-topic-card__count diario-topic-card__count--empty">Em breve</span>
+        </div>
+      {% endif %}
+    {% endfor %}
+  </div>
+{% endblock %}
