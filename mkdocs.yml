@@ -32,6 +32,12 @@ extra:
     - icon: fontawesome/brands/github
       link: https://github.com/erica-luuz
       name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://www.linkedin.com/in/erica-luz-032305177
+      name: LinkedIn
+    - icon: fontawesome/solid/envelope
+      link: mailto:erica.nicollas_hbn@yahoo.com
+      name: E-mail
 
 plugins:
   - search:

@@ -11,4 +11,6 @@ A ideia é simples: guardar o que aprendo de um jeito que eu mesma consiga volta
 
 ## Contato
 
-Você pode me encontrar no [GitHub](https://github.com/erica-luuz).
+[:fontawesome-brands-github: GitHub](https://github.com/erica-luuz){ .md-button target="_blank" rel="noopener" }
+[:fontawesome-brands-linkedin: LinkedIn](https://www.linkedin.com/in/erica-luz-032305177){ .md-button target="_blank" rel="noopener" }
+[:fontawesome-solid-envelope: E-mail](mailto:erica.nicollas_hbn@yahoo.com){ .md-button }
