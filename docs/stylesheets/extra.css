@@ -332,6 +332,12 @@ h1, h2, h3, h4,
   font-size: 0.78rem;
 }
 
+.diario-note-card__date {
+  color: var(--diario-text-secondary);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
 .diario-note-card__title {
   font-family: "Lora", Georgia, serif;
   font-weight: 600;

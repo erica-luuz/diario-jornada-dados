@@ -99,6 +99,7 @@
                 {% if post.categories %}
                   <span class="diario-tag">{{ post.categories[0].title }}</span>
                 {% endif %}
+                <span class="diario-note-card__date">{{ post.config.date.created.strftime("%d/%m/%Y") }}</span>
               </div>
               <p class="diario-note-card__title">{{ post.title }}</p>
               <p class="diario-note-card__desc">{{ post.meta.description | d("", true) }}</p>
