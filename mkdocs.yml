@@ -55,6 +55,7 @@ nav:
   - Blog: blog/index.md
   - Tópicos: topicos.md
   - Sobre: sobre.md
+  - Contato: contato.md
 
 watch:
   - overrides

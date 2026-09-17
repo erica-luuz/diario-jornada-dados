@@ -9,8 +9,4 @@ A ideia é simples: guardar o que aprendo de um jeito que eu mesma consiga volta
 - **[Blog](blog/index.md)** — todos os registros, em ordem cronológica.
 - **[Tópicos](topicos.md)** — os mesmos registros, organizados por assunto.
 
-## Contato
-
-[:fontawesome-brands-github: GitHub](https://github.com/erica-luuz){ .md-button target="_blank" rel="noopener" }
-[:fontawesome-brands-linkedin: LinkedIn](https://www.linkedin.com/in/erica-luz-032305177){ .md-button target="_blank" rel="noopener" }
-[:fontawesome-solid-envelope: E-mail](mailto:erica.nicollas_hbn@yahoo.com){ .md-button }
+Quer entrar em contato? Veja a página **[Contato](contato.md)**.
