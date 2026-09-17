@@ -7,6 +7,7 @@ categories:
   - Carreira e Aprendizado
 tags:
   - introdução
+description: O primeiro registro do meu diário de estudos em dados.
 ---
 
 # Começando a Jornada de Dados

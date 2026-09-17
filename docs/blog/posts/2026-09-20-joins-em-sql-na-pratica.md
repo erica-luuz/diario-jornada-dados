@@ -9,6 +9,7 @@ tags:
   - sql
   - joins
 readtime: 5
+description: Entendendo como combinar tabelas e evitar erros comuns nas consultas.
 ---
 
 # Joins em SQL na prática

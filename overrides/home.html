@@ -85,46 +85,33 @@
       </div>
     </section>
 
+    {% set blog_plugin = config.plugins.get("material/blog") %}
+    {% set latest_posts = blog_plugin.blog.posts[:3] if blog_plugin else [] %}
     <section class="diario-section diario-notes" aria-labelledby="notas-titulo">
       <p class="diario-section__eyebrow">Recentes</p>
       <h2 class="diario-section__title" id="notas-titulo">Últimas anotações</h2>
       <p class="diario-section__lead">Registros mais recentes do que venho estudando.</p>
-      <!-- Cartões atualizados manualmente: reflita aqui os 3 posts mais novos do blog -->
-      <div class="diario-notes__grid">
-        <a class="diario-note-card" href="{{ 'blog/2026/09/20/joins-em-sql-na-pratica/' | url }}">
-          <div class="diario-note-card__top">
-            <span class="diario-tag">SQL</span>
-          </div>
-          <p class="diario-note-card__title">Joins em SQL na prática</p>
-          <p class="diario-note-card__desc">Entendendo como combinar tabelas e evitar erros comuns nas consultas.</p>
-          <div class="diario-note-card__footer">
-            <span class="diario-note-card__read">5 min de leitura</span>
-            <span class="diario-note-card__link">Ler anotação →</span>
-          </div>
-        </a>
-        <a class="diario-note-card" href="{{ 'blog/2026/09/21/primeiros-passos-com-pandas/' | url }}">
-          <div class="diario-note-card__top">
-            <span class="diario-tag">Python</span>
-          </div>
-          <p class="diario-note-card__title">Primeiros passos com Pandas</p>
-          <p class="diario-note-card__desc">Anotações sobre manipulação, limpeza e análise de dados.</p>
-          <div class="diario-note-card__footer">
-            <span class="diario-note-card__read">8 min de leitura</span>
-            <span class="diario-note-card__link">Ler anotação →</span>
-          </div>
-        </a>
-        <a class="diario-note-card" href="{{ 'blog/2026/09/22/meu-primeiro-dashboard/' | url }}">
-          <div class="diario-note-card__top">
-            <span class="diario-tag">Power BI</span>
-          </div>
-          <p class="diario-note-card__title">Meu primeiro dashboard</p>
-          <p class="diario-note-card__desc">O processo de criação de um painel simples para acompanhar indicadores.</p>
-          <div class="diario-note-card__footer">
-            <span class="diario-note-card__read">6 min de leitura</span>
-            <span class="diario-note-card__link">Ler anotação →</span>
-          </div>
-        </a>
-      </div>
+      {% if latest_posts %}
+        <div class="diario-notes__grid">
+          {% for post in latest_posts %}
+            <a class="diario-note-card" href="{{ post.url | url }}">
+              <div class="diario-note-card__top">
+                {% if post.categories %}
+                  <span class="diario-tag">{{ post.categories[0].title }}</span>
+                {% endif %}
+              </div>
+              <p class="diario-note-card__title">{{ post.title }}</p>
+              <p class="diario-note-card__desc">{{ post.meta.description | d("", true) }}</p>
+              <div class="diario-note-card__footer">
+                <span class="diario-note-card__read">{{ post.config.readtime }} min de leitura</span>
+                <span class="diario-note-card__link">Ler anotação →</span>
+              </div>
+            </a>
+          {% endfor %}
+        </div>
+      {% else %}
+        <p class="diario-section__lead">Ainda não há anotações publicadas. Assim que você criar o primeiro post em <code>docs/blog/posts/</code>, ele aparece aqui automaticamente.</p>
+      {% endif %}
     </section>
 
     <section class="diario-section diario-about-wrap" aria-labelledby="sobre-titulo">

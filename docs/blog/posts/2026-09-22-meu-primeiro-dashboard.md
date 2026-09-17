@@ -9,6 +9,7 @@ tags:
   - power-bi
   - dashboards
 readtime: 6
+description: O processo de criação de um painel simples para acompanhar indicadores.
 ---
 
 # Meu primeiro dashboard

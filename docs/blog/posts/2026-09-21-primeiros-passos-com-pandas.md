@@ -9,6 +9,7 @@ tags:
   - python
   - pandas
 readtime: 8
+description: Anotações sobre manipulação, limpeza e análise de dados.
 ---
 
 # Primeiros passos com Pandas
