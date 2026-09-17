@@ -1,0 +1,161 @@
+{% extends "main.html" %}
+
+{% block tabs %}
+  {{ super() }}
+
+  <div class="diario-home">
+    <section class="diario-hero">
+      <div class="diario-hero__inner">
+        <div>
+          <h1 class="diario-hero__title">Aprendizados, anotações e projetos enquanto construo minha carreira em dados.</h1>
+          <p class="diario-hero__text">
+            Um espaço para registrar o que estou estudando, compartilhar descobertas e acompanhar minha evolução em tecnologia, programação e análise de dados.
+          </p>
+          <div class="diario-hero__actions">
+            <a href="{{ 'blog/' | url }}" class="md-button md-button--primary">Ver últimas anotações</a>
+            <a href="{{ 'topicos/' | url }}" class="md-button md-button--secondary">Conhecer os tópicos</a>
+          </div>
+        </div>
+        <div class="diario-hero__visual" aria-hidden="true">
+          <div class="diario-tagcard diario-tagcard--1">
+            {% include ".icons/material/language-python.svg" %}
+            Python
+          </div>
+          <div class="diario-tagcard diario-tagcard--2">
+            {% include ".icons/material/database.svg" %}
+            SQL
+          </div>
+          <div class="diario-tagcard diario-tagcard--3">
+            {% include ".icons/material/chart-areaspline.svg" %}
+            Dados
+          </div>
+          <div class="diario-tagcard diario-tagcard--4">
+            {% include ".icons/material/rocket-launch-outline.svg" %}
+            Projetos
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="diario-section diario-topics" aria-labelledby="topicos-titulo">
+      <p class="diario-section__eyebrow">Explorar</p>
+      <h2 class="diario-section__title" id="topicos-titulo">O que estou estudando</h2>
+      <p class="diario-section__lead">Os principais temas que venho aprofundando na minha jornada em dados.</p>
+      <div class="diario-topics__grid">
+        <a class="diario-topic-card" style="--diario-topic-color:#4F6FAE" href="{{ 'blog/category/python/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/language-python.svg" %}</span>
+          <p class="diario-topic-card__title">Python</p>
+          <p class="diario-topic-card__desc">Manipulação de dados, automação e primeiros scripts.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#253B6E" href="{{ 'blog/category/sql/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/database.svg" %}</span>
+          <p class="diario-topic-card__title">SQL</p>
+          <p class="diario-topic-card__desc">Consultas, joins e boas práticas em bancos de dados.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#E98268" href="{{ 'blog/category/power-bi/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/monitor-dashboard.svg" %}</span>
+          <p class="diario-topic-card__title">Power BI</p>
+          <p class="diario-topic-card__desc">Dashboards, modelagem e visualização interativa.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#F4C95D" href="{{ 'blog/category/estatistica/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/chart-bell-curve.svg" %}</span>
+          <p class="diario-topic-card__title">Estatística</p>
+          <p class="diario-topic-card__desc">Fundamentos que sustentam toda análise de dados.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#4F6FAE" href="{{ 'blog/category/engenharia-de-dados/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/server-network.svg" %}</span>
+          <p class="diario-topic-card__title">Engenharia de Dados</p>
+          <p class="diario-topic-card__desc">Pipelines, ETL e organização de dados na origem.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#E98268" href="{{ 'blog/category/projetos/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/rocket-launch-outline.svg" %}</span>
+          <p class="diario-topic-card__title">Projetos</p>
+          <p class="diario-topic-card__desc">Estudos de caso e aplicações práticas do que aprendo.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#253B6E" href="{{ 'blog/category/visualizacao-de-dados/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/chart-areaspline.svg" %}</span>
+          <p class="diario-topic-card__title">Visualização de Dados</p>
+          <p class="diario-topic-card__desc">Gráficos e painéis que contam histórias com clareza.</p>
+        </a>
+        <a class="diario-topic-card" style="--diario-topic-color:#F4C95D" href="{{ 'blog/category/carreira-e-aprendizado/' | url }}">
+          <span class="diario-topic-card__icon">{% include ".icons/material/school.svg" %}</span>
+          <p class="diario-topic-card__title">Carreira e Aprendizado</p>
+          <p class="diario-topic-card__desc">Reflexões sobre estudo, transição e evolução profissional.</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="diario-section diario-notes" aria-labelledby="notas-titulo">
+      <p class="diario-section__eyebrow">Recentes</p>
+      <h2 class="diario-section__title" id="notas-titulo">Últimas anotações</h2>
+      <p class="diario-section__lead">Registros mais recentes do que venho estudando.</p>
+      <!-- Cartões atualizados manualmente: reflita aqui os 3 posts mais novos do blog -->
+      <div class="diario-notes__grid">
+        <a class="diario-note-card" href="{{ 'blog/2026/09/20/joins-em-sql-na-pratica/' | url }}">
+          <div class="diario-note-card__top">
+            <span class="diario-tag">SQL</span>
+          </div>
+          <p class="diario-note-card__title">Joins em SQL na prática</p>
+          <p class="diario-note-card__desc">Entendendo como combinar tabelas e evitar erros comuns nas consultas.</p>
+          <div class="diario-note-card__footer">
+            <span class="diario-note-card__read">5 min de leitura</span>
+            <span class="diario-note-card__link">Ler anotação →</span>
+          </div>
+        </a>
+        <a class="diario-note-card" href="{{ 'blog/2026/09/21/primeiros-passos-com-pandas/' | url }}">
+          <div class="diario-note-card__top">
+            <span class="diario-tag">Python</span>
+          </div>
+          <p class="diario-note-card__title">Primeiros passos com Pandas</p>
+          <p class="diario-note-card__desc">Anotações sobre manipulação, limpeza e análise de dados.</p>
+          <div class="diario-note-card__footer">
+            <span class="diario-note-card__read">8 min de leitura</span>
+            <span class="diario-note-card__link">Ler anotação →</span>
+          </div>
+        </a>
+        <a class="diario-note-card" href="{{ 'blog/2026/09/22/meu-primeiro-dashboard/' | url }}">
+          <div class="diario-note-card__top">
+            <span class="diario-tag">Power BI</span>
+          </div>
+          <p class="diario-note-card__title">Meu primeiro dashboard</p>
+          <p class="diario-note-card__desc">O processo de criação de um painel simples para acompanhar indicadores.</p>
+          <div class="diario-note-card__footer">
+            <span class="diario-note-card__read">6 min de leitura</span>
+            <span class="diario-note-card__link">Ler anotação →</span>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="diario-section diario-about-wrap" aria-labelledby="sobre-titulo">
+      <div class="diario-about">
+        <span class="diario-about__icon">{% include ".icons/material/notebook-outline.svg" %}</span>
+        <div>
+          <h2 class="diario-section__title" id="sobre-titulo">Sobre este diário</h2>
+          <p class="diario-about__text">
+            Este blog é meu espaço de registro e reflexão sobre tudo o que estou aprendendo. Aqui compartilho anotações, exemplos, erros, descobertas e projetos desenvolvidos ao longo da minha jornada.
+          </p>
+          <div class="diario-timeline">
+            <div class="diario-timeline__step diario-timeline__step--active">
+              <span class="diario-timeline__dot"></span> Fundamentos
+            </div>
+            <span class="diario-timeline__line"></span>
+            <div class="diario-timeline__step diario-timeline__step--active">
+              <span class="diario-timeline__dot"></span> Ferramentas
+            </div>
+            <span class="diario-timeline__line"></span>
+            <div class="diario-timeline__step">
+              <span class="diario-timeline__dot"></span> Projetos
+            </div>
+            <span class="diario-timeline__line"></span>
+            <div class="diario-timeline__step">
+              <span class="diario-timeline__dot"></span> Compartilhando
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+{% endblock %}
+
+{% block content %}{% endblock %}

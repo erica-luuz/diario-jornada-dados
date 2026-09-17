@@ -1,27 +1,37 @@
 site_name: Diário da Jornada de Dados
-site_description: Registro dos meus estudos em dados
+site_description: Aprendizados, anotações e projetos enquanto construo minha carreira em dados
 site_author: Erica Nicollas
+copyright: "© 2026 Diário da Jornada de Dados. Todos os direitos reservados."
 
 theme:
   name: material
+  custom_dir: overrides
   language: pt-BR
+  font: false
+  icon:
+    logo: material/notebook-outline
   palette:
     - scheme: default
-      primary: indigo
-      toggle:
-        icon: material/brightness-7
-        name: Alternar para modo escuro
-    - scheme: slate
-      primary: indigo
-      toggle:
-        icon: material/brightness-4
-        name: Alternar para modo claro
+      primary: custom
+      accent: custom
   features:
     - navigation.tabs
+    - navigation.tabs.sticky
     - navigation.top
+    - navigation.instant
     - search.suggest
     - search.highlight
     - content.code.copy
+
+extra_css:
+  - stylesheets/extra.css
+
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/erica-luuz
+      name: GitHub
 
 plugins:
   - search:
@@ -36,8 +46,9 @@ plugins:
 
 nav:
   - Início: index.md
-  - Blog:
-      - blog/index.md
+  - Blog: blog/index.md
+  - Tópicos: topicos.md
+  - Sobre: sobre.md
 
 markdown_extensions:
   - admonition
@@ -46,3 +57,6 @@ markdown_extensions:
   - pymdownx.highlight
   - pymdownx.superfences
   - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg

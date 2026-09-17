@@ -1,0 +1,533 @@
+@import url("https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap");
+
+/* ---------- Paleta ---------- */
+[data-md-color-primary="custom"] {
+  --md-primary-fg-color: #253B6E;
+  --md-primary-fg-color--light: #4F6FAE;
+  --md-primary-fg-color--dark: #1A2C54;
+  --md-primary-bg-color: #FFFFFF;
+  --md-primary-bg-color--light: #E8F0FF;
+}
+
+[data-md-color-accent="custom"] {
+  --md-accent-fg-color: #E98268;
+  --md-accent-fg-color--transparent: #E982681a;
+  --md-accent-bg-color: #FFFFFF;
+}
+
+:root {
+  --diario-blue-deep: #253B6E;
+  --diario-blue-medium: #4F6FAE;
+  --diario-blue-light: #E8F0FF;
+  --diario-bg: #F7F8FC;
+  --diario-card: #FFFFFF;
+  --diario-text: #263238;
+  --diario-text-secondary: #687386;
+  --diario-yellow: #F4C95D;
+  --diario-coral: #E98268;
+
+  --md-default-bg-color: var(--diario-bg);
+  --md-default-fg-color: var(--diario-text);
+  --md-typeset-a-color: var(--diario-blue-deep);
+  --md-footer-bg-color: var(--diario-blue-deep);
+  --md-footer-fg-color: #FFFFFF;
+  --md-footer-fg-color--light: #C7D2EA;
+  --md-header-height: 3.1rem;
+}
+
+/* ---------- Tipografia ---------- */
+body,
+.md-typeset {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1, h2, h3, h4,
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3,
+.md-typeset h4,
+.diario-hero__title,
+.diario-section__title,
+.diario-card__title {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  color: var(--diario-blue-deep);
+  letter-spacing: -0.01em;
+}
+
+.md-typeset h1 { font-size: 2rem; }
+.md-typeset h2 { font-size: 1.5rem; }
+
+/* ---------- Cabeçalho compacto ---------- */
+.md-header {
+  box-shadow: 0 1px 3px rgba(37, 59, 110, 0.15);
+}
+
+.md-header__inner {
+  padding: 0.35rem 0;
+}
+
+.md-header__title {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+}
+
+.md-tabs {
+  background-color: var(--diario-blue-deep);
+}
+
+/* Busca discreta e arredondada */
+.md-search__form {
+  border-radius: 999px;
+  background-color: rgba(255, 255, 255, 0.16);
+}
+
+.md-search__input {
+  border-radius: 999px;
+}
+
+.md-search__input::placeholder {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+@media screen and (min-width: 60em) {
+  .md-search__form {
+    background-color: rgba(255, 255, 255, 0.18);
+  }
+
+  .md-search__form:hover {
+    background-color: rgba(255, 255, 255, 0.28);
+  }
+}
+
+/* ---------- Botões ---------- */
+.md-button {
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 0.6em 1.4em;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.md-button--primary {
+  background-color: var(--diario-coral);
+  border-color: var(--diario-coral);
+  color: #FFFFFF;
+}
+
+.md-button--primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(233, 130, 104, 0.35);
+}
+
+.md-button--secondary {
+  background-color: var(--diario-blue-light);
+  border-color: var(--diario-blue-medium);
+  color: var(--diario-blue-deep);
+}
+
+.md-button--secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 16px rgba(37, 59, 110, 0.15);
+}
+
+/* ================= Página inicial ================= */
+.diario-home {
+  background-color: var(--diario-bg);
+}
+
+.diario-section {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 3.5rem 1.4rem;
+}
+
+.diario-section__eyebrow {
+  color: var(--diario-blue-medium);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.diario-section__title {
+  font-size: 1.6rem;
+  margin: 0 0 0.5rem;
+}
+
+.diario-section__lead {
+  color: var(--diario-text-secondary);
+  margin-bottom: 2rem;
+  max-width: 40rem;
+}
+
+/* ---------- Hero ---------- */
+.diario-hero {
+  background: linear-gradient(180deg, var(--diario-blue-light) 0%, var(--diario-bg) 100%);
+  border-bottom: 1px solid rgba(37, 59, 110, 0.08);
+}
+
+.diario-hero__inner {
+  max-width: 74rem;
+  margin: 0 auto;
+  padding: 4rem 1.4rem;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 3rem;
+  align-items: center;
+}
+
+.diario-hero__title {
+  font-size: 2.4rem;
+  line-height: 1.25;
+  margin: 0 0 1rem;
+}
+
+.diario-hero__text {
+  color: var(--diario-text-secondary);
+  font-size: 1.05rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  max-width: 34rem;
+}
+
+.diario-hero__actions {
+  display: flex;
+  gap: 0.9rem;
+  flex-wrap: wrap;
+}
+
+/* Elemento decorativo: cartões-tag flutuando estilo caderno */
+.diario-hero__visual {
+  position: relative;
+  height: 15rem;
+}
+
+.diario-tagcard {
+  position: absolute;
+  background: var(--diario-card);
+  border-radius: 14px;
+  box-shadow: 0 12px 28px rgba(37, 59, 110, 0.14);
+  padding: 0.9rem 1.2rem;
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  color: var(--diario-blue-deep);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.diario-tagcard .twemoji,
+.diario-tagcard svg {
+  width: 1.1rem;
+  height: 1.1rem;
+  fill: var(--diario-coral);
+}
+
+.diario-tagcard--1 { top: 0; left: 1rem; transform: rotate(-4deg); }
+.diario-tagcard--2 { top: 3.2rem; left: 9rem; transform: rotate(3deg); background: var(--diario-blue-deep); color: #fff; }
+.diario-tagcard--2 svg { fill: var(--diario-yellow); }
+.diario-tagcard--3 { top: 7.2rem; left: 2.4rem; transform: rotate(-2deg); }
+.diario-tagcard--4 { top: 10.6rem; left: 10.5rem; transform: rotate(4deg); background: var(--diario-coral); color: #fff; }
+.diario-tagcard--4 svg { fill: #fff; }
+
+/* ---------- Tópicos ---------- */
+.diario-topics__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.1rem;
+}
+
+.diario-topic-card {
+  background: var(--diario-card);
+  border-radius: 14px;
+  padding: 1.2rem;
+  box-shadow: 0 2px 10px rgba(37, 59, 110, 0.08);
+  border-top: 3px solid var(--diario-topic-color, var(--diario-blue-medium));
+  text-decoration: none;
+  display: block;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.diario-topic-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 24px rgba(37, 59, 110, 0.14);
+}
+
+.diario-topic-card__icon {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--diario-topic-color, var(--diario-blue-medium));
+  margin-bottom: 0.7rem;
+}
+
+.diario-topic-card__icon svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: #fff;
+}
+
+.diario-topic-card__title {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  color: var(--diario-text);
+  font-size: 0.98rem;
+  margin: 0 0 0.3rem;
+}
+
+.diario-topic-card__desc {
+  color: var(--diario-text-secondary);
+  font-size: 0.85rem;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* ---------- Últimas anotações ---------- */
+.diario-notes__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.3rem;
+}
+
+.diario-note-card {
+  background: var(--diario-card);
+  border-radius: 14px;
+  padding: 1.4rem;
+  box-shadow: 0 2px 10px rgba(37, 59, 110, 0.08);
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.diario-note-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 28px rgba(37, 59, 110, 0.16);
+}
+
+.diario-note-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.diario-tag {
+  display: inline-block;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  padding: 0.25rem 0.6rem;
+  border-radius: 999px;
+  background: var(--diario-blue-light);
+  color: var(--diario-blue-deep);
+}
+
+.diario-note-card__meta {
+  color: var(--diario-text-secondary);
+  font-size: 0.78rem;
+}
+
+.diario-note-card__title {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.08rem;
+  color: var(--diario-text);
+  margin: 0;
+}
+
+.diario-note-card__desc {
+  color: var(--diario-text-secondary);
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.diario-note-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.4rem;
+}
+
+.diario-note-card__read {
+  color: var(--diario-text-secondary);
+  font-size: 0.78rem;
+}
+
+.diario-note-card__link {
+  color: var(--diario-blue-deep);
+  font-weight: 600;
+  font-size: 0.86rem;
+  text-decoration: none;
+}
+
+.diario-note-card__link:hover {
+  color: var(--diario-coral);
+}
+
+/* ---------- Sobre ---------- */
+.diario-about {
+  background: var(--diario-card);
+  border-radius: 18px;
+  padding: 2.4rem;
+  box-shadow: 0 2px 10px rgba(37, 59, 110, 0.06);
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.6rem;
+  align-items: start;
+}
+
+.diario-about__icon {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 12px;
+  background: var(--diario-blue-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.diario-about__icon svg {
+  width: 1.6rem;
+  height: 1.6rem;
+  fill: var(--diario-blue-deep);
+}
+
+.diario-about__text {
+  color: var(--diario-text-secondary);
+  line-height: 1.65;
+  max-width: 42rem;
+  margin: 0 0 1.6rem;
+}
+
+.diario-timeline {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  flex-wrap: wrap;
+}
+
+.diario-timeline__step {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--diario-text-secondary);
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+.diario-timeline__dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  background: var(--diario-blue-medium);
+}
+
+.diario-timeline__step--active .diario-timeline__dot {
+  background: var(--diario-coral);
+}
+
+.diario-timeline__step--active {
+  color: var(--diario-blue-deep);
+}
+
+.diario-timeline__line {
+  width: 2.2rem;
+  height: 2px;
+  background: var(--diario-blue-light);
+  margin: 0 0.5rem;
+}
+
+/* ================= Rodapé ================= */
+.diario-footer {
+  padding: 2.6rem 1.4rem 1.4rem;
+}
+
+.diario-footer__grid {
+  max-width: 74rem;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: 2rem;
+  align-items: start;
+}
+
+.diario-footer__title {
+  font-family: "Lora", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.15rem;
+  color: #FFFFFF;
+}
+
+.diario-footer__tagline {
+  color: var(--md-footer-fg-color--light);
+  font-size: 0.88rem;
+  margin-top: 0.4rem;
+  max-width: 24rem;
+}
+
+.diario-footer__links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.diario-footer__links a {
+  color: var(--md-footer-fg-color--light);
+  text-decoration: none;
+  font-size: 0.9rem;
+}
+
+.diario-footer__links a:hover {
+  color: #FFFFFF;
+}
+
+.diario-footer__social {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.diario-footer__social a {
+  color: var(--md-footer-fg-color--light);
+}
+
+.diario-footer__social a:hover {
+  color: #FFFFFF;
+}
+
+.diario-footer__social svg {
+  width: 1.15rem;
+  height: 1.15rem;
+  fill: currentColor;
+}
+
+.diario-footer__bottom {
+  max-width: 74rem;
+  margin: 1.8rem auto 0;
+  padding-top: 1.2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--md-footer-fg-color--light);
+  font-size: 0.78rem;
+}
+
+/* ---------- Responsivo ---------- */
+@media screen and (max-width: 76.1875em) {
+  .diario-topics__grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media screen and (max-width: 44.9375em) {
+  .diario-hero__inner { grid-template-columns: 1fr; padding: 2.6rem 1.2rem; }
+  .diario-hero__visual { display: none; }
+  .diario-hero__title { font-size: 1.8rem; }
+  .diario-notes__grid { grid-template-columns: 1fr; }
+  .diario-topics__grid { grid-template-columns: 1fr; }
+  .diario-about { grid-template-columns: 1fr; padding: 1.6rem; }
+  .diario-footer__grid { grid-template-columns: 1fr; gap: 1.4rem; }
+  .diario-section { padding: 2.4rem 1.2rem; }
+}

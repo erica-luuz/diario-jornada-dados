@@ -1,9 +1,10 @@
 ---
 date: 2026-09-16
+slug: comecando-a-jornada-de-dados
 authors:
   - erica
 categories:
-  - Geral
+  - Carreira e Aprendizado
 tags:
   - introdução
 ---
