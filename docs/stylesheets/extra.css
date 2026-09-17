@@ -446,41 +446,37 @@ h1, h2, h3, h4,
 
 /* ================= Rodapé ================= */
 .diario-footer {
-  padding: 2.6rem 1.4rem 1.4rem;
+  padding: 1.4rem 1.4rem 0.9rem;
 }
 
 .diario-footer__grid {
-  max-width: 52rem;
+  max-width: 74rem;
   margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2.5rem 3.5rem;
-}
-
-.diario-footer__grid > div:first-child {
-  flex: 1 1 18rem;
-  max-width: 24rem;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr auto;
+  gap: 1rem;
+  align-items: center;
 }
 
 .diario-footer__title {
   font-family: "Lora", Georgia, serif;
   font-weight: 600;
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   color: #FFFFFF;
 }
 
 .diario-footer__tagline {
   color: var(--md-footer-fg-color--light);
-  font-size: 0.88rem;
-  margin-top: 0.4rem;
+  font-size: 0.82rem;
+  margin-top: 0.2rem;
   max-width: 24rem;
 }
 
 .diario-footer__links {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .diario-footer__links a {
@@ -513,12 +509,12 @@ h1, h2, h3, h4,
 }
 
 .diario-footer__bottom {
-  max-width: 52rem;
-  margin: 1.8rem auto 0;
-  padding-top: 1.2rem;
+  max-width: 74rem;
+  margin: 0.9rem auto 0;
+  padding-top: 0.7rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
   color: var(--md-footer-fg-color--light);
-  font-size: 0.78rem;
+  font-size: 0.75rem;
 }
 
 /* ---------- Responsivo ---------- */
