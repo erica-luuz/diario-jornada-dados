@@ -452,10 +452,15 @@ h1, h2, h3, h4,
 .diario-footer__grid {
   max-width: 52rem;
   margin: 0 auto;
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr auto;
-  gap: 2.5rem;
-  align-items: start;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem 3.5rem;
+}
+
+.diario-footer__grid > div:first-child {
+  flex: 1 1 18rem;
+  max-width: 24rem;
 }
 
 .diario-footer__title {
