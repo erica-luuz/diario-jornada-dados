@@ -515,15 +515,15 @@ h1, h2, h3, h4,
 
 .diario-footer__title {
   font-family: "Lora", Georgia, serif;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.88rem;
   color: #FFFFFF;
 }
 
 .diario-footer__tagline {
   color: var(--md-footer-fg-color--light);
-  font-size: 0.72rem;
-  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
   max-width: 24rem;
 }
 
