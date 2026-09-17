@@ -87,6 +87,17 @@
 
     {% set blog_plugin = config.plugins.get("material/blog") %}
     {% set latest_posts = blog_plugin.blog.posts[:3] if blog_plugin else [] %}
+    {% set diario_category_icons = {
+      "Python": {"icon": "material/code-tags", "color": "#4F6FAE"},
+      "SQL": {"icon": "material/table", "color": "#253B6E"},
+      "Power BI": {"icon": "material/chart-bar", "color": "#E98268"},
+      "Estatística": {"icon": "material/chart-bell-curve", "color": "#4F6FAE"},
+      "Engenharia de Dados": {"icon": "material/server-network", "color": "#253B6E"},
+      "Projetos": {"icon": "material/folder-outline", "color": "#E98268"},
+      "Visualização de Dados": {"icon": "material/chart-areaspline", "color": "#253B6E"},
+      "Carreira e Aprendizado": {"icon": "material/school-outline", "color": "#4F6FAE"}
+    } %}
+    {% set diario_category_default = {"icon": "material/notebook-outline", "color": "#4F6FAE"} %}
     <section class="diario-section diario-notes" aria-labelledby="notas-titulo">
       <p class="diario-section__eyebrow">Recentes</p>
       <h2 class="diario-section__title" id="notas-titulo">Últimas anotações</h2>
@@ -94,11 +105,18 @@
       {% if latest_posts %}
         <div class="diario-notes__grid">
           {% for post in latest_posts %}
+            {% set cat_name = post.categories[0].title if post.categories else "" %}
+            {% set cat_meta = diario_category_icons.get(cat_name, diario_category_default) %}
             <a class="diario-note-card" href="{{ post.url | url }}">
               <div class="diario-note-card__top">
-                {% if post.categories %}
-                  <span class="diario-tag">{{ post.categories[0].title }}</span>
-                {% endif %}
+                <span class="diario-note-card__top-left">
+                  <span class="diario-note-card__icon" style="--diario-note-icon-color:{{ cat_meta.color }}">
+                    {% include ".icons/" ~ cat_meta.icon ~ ".svg" %}
+                  </span>
+                  {% if post.categories %}
+                    <span class="diario-tag">{{ post.categories[0].title }}</span>
+                  {% endif %}
+                </span>
                 <span class="diario-note-card__date">{{ post.config.date.created.strftime("%d/%m/%Y") }}</span>
               </div>
               <p class="diario-note-card__title">{{ post.title }}</p>

@@ -315,6 +315,29 @@ h1, h2, h3, h4,
   justify-content: space-between;
 }
 
+.diario-note-card__top-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.diario-note-card__icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--diario-note-icon-color, var(--diario-blue-medium));
+}
+
+.diario-note-card__icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: #fff;
+}
+
 .diario-tag {
   display: inline-block;
   font-size: 0.7rem;
