@@ -450,11 +450,11 @@ h1, h2, h3, h4,
 }
 
 .diario-footer__grid {
-  max-width: 74rem;
+  max-width: 52rem;
   margin: 0 auto;
   display: grid;
-  grid-template-columns: 1.4fr 1fr auto;
-  gap: 2rem;
+  grid-template-columns: 1.2fr 0.8fr auto;
+  gap: 2.5rem;
   align-items: start;
 }
 
@@ -508,7 +508,7 @@ h1, h2, h3, h4,
 }
 
 .diario-footer__bottom {
-  max-width: 74rem;
+  max-width: 52rem;
   margin: 1.8rem auto 0;
   padding-top: 1.2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.12);
