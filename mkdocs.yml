@@ -56,6 +56,9 @@ nav:
   - Tópicos: topicos.md
   - Sobre: sobre.md
 
+watch:
+  - overrides
+
 markdown_extensions:
   - admonition
   - attr_list
