@@ -315,6 +315,29 @@ h1, h2, h3, h4,
   justify-content: space-between;
 }
 
+.diario-note-card__top-left {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.diario-note-card__icon {
+  width: 1.9rem;
+  height: 1.9rem;
+  border-radius: 8px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--diario-note-icon-color, var(--diario-blue-medium));
+}
+
+.diario-note-card__icon svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  fill: #fff;
+}
+
 .diario-tag {
   display: inline-block;
   font-size: 0.7rem;
@@ -330,6 +353,12 @@ h1, h2, h3, h4,
 .diario-note-card__meta {
   color: var(--diario-text-secondary);
   font-size: 0.78rem;
+}
+
+.diario-note-card__date {
+  color: var(--diario-text-secondary);
+  font-size: 0.75rem;
+  white-space: nowrap;
 }
 
 .diario-note-card__title {
@@ -408,40 +437,66 @@ h1, h2, h3, h4,
 
 .diario-timeline {
   display: flex;
-  align-items: center;
-  gap: 0;
-  flex-wrap: wrap;
+  list-style: none;
+  margin: 1.6rem 0 0;
+  padding: 0;
 }
 
 .diario-timeline__step {
+  position: relative;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 0.6rem;
-  color: var(--diario-text-secondary);
-  font-size: 0.82rem;
-  font-weight: 600;
+  gap: 0.5rem;
+  flex: 1;
+  text-align: center;
 }
 
-.diario-timeline__dot {
-  width: 0.6rem;
-  height: 0.6rem;
-  border-radius: 50%;
-  background: var(--diario-blue-medium);
+.diario-timeline__step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 1.05rem;
+  left: 50%;
+  width: 100%;
+  height: 2px;
+  background: var(--diario-blue-light);
 }
 
-.diario-timeline__step--active .diario-timeline__dot {
+.diario-timeline__step--active:not(:last-child)::after {
   background: var(--diario-coral);
 }
 
-.diario-timeline__step--active {
-  color: var(--diario-blue-deep);
+.diario-timeline__circle {
+  position: relative;
+  z-index: 1;
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lora", Georgia, serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  background: var(--diario-card);
+  color: var(--diario-blue-medium);
+  border: 2px solid var(--diario-blue-light);
 }
 
-.diario-timeline__line {
-  width: 2.2rem;
-  height: 2px;
-  background: var(--diario-blue-light);
-  margin: 0 0.5rem;
+.diario-timeline__step--active .diario-timeline__circle {
+  background: var(--diario-coral);
+  border-color: var(--diario-coral);
+  color: #FFFFFF;
+}
+
+.diario-timeline__label {
+  color: var(--diario-text-secondary);
+  font-size: 0.78rem;
+  font-weight: 600;
+}
+
+.diario-timeline__step--active .diario-timeline__label {
+  color: var(--diario-blue-deep);
 }
 
 /* ================= Rodapé ================= */
@@ -460,15 +515,15 @@ h1, h2, h3, h4,
 
 .diario-footer__title {
   font-family: "Lora", Georgia, serif;
-  font-weight: 600;
-  font-size: 0.95rem;
+  font-weight: 500;
+  font-size: 0.88rem;
   color: #FFFFFF;
 }
 
 .diario-footer__tagline {
   color: var(--md-footer-fg-color--light);
-  font-size: 0.72rem;
-  margin-top: 0.2rem;
+  font-size: 0.7rem;
+  margin-top: 0.15rem;
   max-width: 24rem;
 }
 

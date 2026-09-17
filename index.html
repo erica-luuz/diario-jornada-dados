@@ -373,6 +373,8 @@
 
     
     
+    
+    
     <section class="diario-section diario-notes" aria-labelledby="notas-titulo">
       <p class="diario-section__eyebrow">Recentes</p>
       <h2 class="diario-section__title" id="notas-titulo">Últimas anotações</h2>
@@ -380,11 +382,19 @@
       
         <div class="diario-notes__grid">
           
+            
+            
             <a class="diario-note-card" href="blog/2026/09/22/meu-primeiro-dashboard/">
               <div class="diario-note-card__top">
-                
-                  <span class="diario-tag">Power BI</span>
-                
+                <span class="diario-note-card__top-left">
+                  <span class="diario-note-card__icon" style="--diario-note-icon-color:#E98268">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M22 21H2V3h2v16h2v-9h4v9h2V6h4v13h2v-5h4z"/></svg>
+                  </span>
+                  
+                    <span class="diario-tag">Power BI</span>
+                  
+                </span>
+                <span class="diario-note-card__date">22/09/2026</span>
               </div>
               <p class="diario-note-card__title">Meu primeiro dashboard</p>
               <p class="diario-note-card__desc">O processo de criação de um painel simples para acompanhar indicadores.</p>
@@ -394,11 +404,19 @@
               </div>
             </a>
           
+            
+            
             <a class="diario-note-card" href="blog/2026/09/21/primeiros-passos-com-pandas/">
               <div class="diario-note-card__top">
-                
-                  <span class="diario-tag">Python</span>
-                
+                <span class="diario-note-card__top-left">
+                  <span class="diario-note-card__icon" style="--diario-note-icon-color:#4F6FAE">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.6 16.6 4.6-4.6-4.6-4.6L16 6l6 6-6 6zm-5.2 0L4.8 12l4.6-4.6L8 6l-6 6 6 6z"/></svg>
+                  </span>
+                  
+                    <span class="diario-tag">Python</span>
+                  
+                </span>
+                <span class="diario-note-card__date">21/09/2026</span>
               </div>
               <p class="diario-note-card__title">Primeiros passos com Pandas</p>
               <p class="diario-note-card__desc">Anotações sobre manipulação, limpeza e análise de dados.</p>
@@ -408,11 +426,19 @@
               </div>
             </a>
           
+            
+            
             <a class="diario-note-card" href="blog/2026/09/20/joins-em-sql-na-pratica/">
               <div class="diario-note-card__top">
-                
-                  <span class="diario-tag">SQL</span>
-                
+                <span class="diario-note-card__top-left">
+                  <span class="diario-note-card__icon" style="--diario-note-icon-color:#253B6E">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 4h14a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2m0 4v4h6V8zm8 0v4h6V8zm-8 6v4h6v-4zm8 0v4h6v-4z"/></svg>
+                  </span>
+                  
+                    <span class="diario-tag">SQL</span>
+                  
+                </span>
+                <span class="diario-note-card__date">20/09/2026</span>
               </div>
               <p class="diario-note-card__title">Joins em SQL na prática</p>
               <p class="diario-note-card__desc">Entendendo como combinar tabelas e evitar erros comuns nas consultas.</p>
@@ -432,25 +458,26 @@
         <div>
           <h2 class="diario-section__title" id="sobre-titulo">Sobre este diário</h2>
           <p class="diario-about__text">
-            Este blog é meu espaço de registro e reflexão sobre tudo o que estou aprendendo. Aqui compartilho anotações, exemplos, erros, descobertas e projetos desenvolvidos ao longo da minha jornada.
+            Comecei este diário para transformar o estudo em algo visível: registrar dúvidas, organizar descobertas e acompanhar minha evolução, um conceito de cada vez.
           </p>
-          <div class="diario-timeline">
-            <div class="diario-timeline__step diario-timeline__step--active">
-              <span class="diario-timeline__dot"></span> Fundamentos
-            </div>
-            <span class="diario-timeline__line"></span>
-            <div class="diario-timeline__step diario-timeline__step--active">
-              <span class="diario-timeline__dot"></span> Ferramentas
-            </div>
-            <span class="diario-timeline__line"></span>
-            <div class="diario-timeline__step">
-              <span class="diario-timeline__dot"></span> Projetos
-            </div>
-            <span class="diario-timeline__line"></span>
-            <div class="diario-timeline__step">
-              <span class="diario-timeline__dot"></span> Compartilhando
-            </div>
-          </div>
+          <ol class="diario-timeline">
+            <li class="diario-timeline__step diario-timeline__step--active">
+              <span class="diario-timeline__circle">1</span>
+              <span class="diario-timeline__label">Fundamentos</span>
+            </li>
+            <li class="diario-timeline__step diario-timeline__step--active">
+              <span class="diario-timeline__circle">2</span>
+              <span class="diario-timeline__label">Ferramentas</span>
+            </li>
+            <li class="diario-timeline__step">
+              <span class="diario-timeline__circle">3</span>
+              <span class="diario-timeline__label">Projetos</span>
+            </li>
+            <li class="diario-timeline__step">
+              <span class="diario-timeline__circle">4</span>
+              <span class="diario-timeline__label">Compartilhando</span>
+            </li>
+          </ol>
         </div>
       </div>
     </section>
@@ -683,7 +710,7 @@
     <div class="diario-footer__grid">
       <div>
         <div class="diario-footer__title">Diário da Jornada de Dados</div>
-        <p class="diario-footer__tagline">Registro dos meus estudos e evolução na área de dados, do primeiro SQL ao primeiro dashboard.</p>
+        <p class="diario-footer__tagline">Registro de estudos em dados.</p>
       </div>
       <nav class="diario-footer__links" aria-label="Rodapé">
         <a href="sobre/">Sobre</a>
