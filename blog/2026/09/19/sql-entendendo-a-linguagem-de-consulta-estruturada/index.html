@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Entendendo como combinar tabelas e evitar erros comuns nas consultas.">
+        <meta name="description" content="O que é SQL, por que ele surgiu e os elementos e chaves que formam a base da linguagem.">
       
       
         <meta name="author" content="Érica Luz">
       
       
       
-        <link rel="prev" href="../../19/meu-mapa-de-estudos-em-dados/">
       
-      
-        <link rel="next" href="../../21/primeiros-passos-com-pandas/">
+        <link rel="next" href="../minha-jornada-pelo-universo-dos-dados/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>Joins em SQL na prática - Diário da Jornada de Dados</title>
+        <title>SQL: entendendo a linguagem de consulta estruturada - Diário da Jornada de Dados</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#joins-em-sql-na-pratica" class="md-skip">
+        <a href="#sql-entendendo-a-linguagem-de-consulta-estruturada" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Joins em SQL na prática
+              SQL: entendendo a linguagem de consulta estruturada
             
           </span>
         </div>
@@ -491,10 +489,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#o-problema-que-os-joins-resolvem" class="md-nav__link">
+  <a href="#o-que-e-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O problema que os joins resolvem
+        O que é SQL?
       
     </span>
   </a>
@@ -502,10 +500,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#os-tipos-mais-comuns" class="md-nav__link">
+  <a href="#por-que-o-sql-surgiu" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Os tipos mais comuns
+        Por que o SQL surgiu
       
     </span>
   </a>
@@ -513,10 +511,21 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#erro-comum-duplicacao-de-linhas" class="md-nav__link">
+  <a href="#elementos-do-sql" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Erro comum: duplicação de linhas
+        Elementos do SQL
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chaves-como-as-tabelas-se-relacionam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Chaves: como as tabelas se relacionam
       
     </span>
   </a>
@@ -579,7 +588,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-09-20 00:00:00+00:00" class="md-ellipsis">20 de setembro de 2026</time>
+                        <time datetime="2026-09-19 00:00:00+00:00" class="md-ellipsis">19 de setembro de 2026</time>
                       </div>
                     </li>
                     
@@ -601,7 +610,7 @@
                           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 20a8 8 0 0 0 8-8 8 8 0 0 0-8-8 8 8 0 0 0-8 8 8 8 0 0 0 8 8m0-18a10 10 0 0 1 10 10 10 10 0 0 1-10 10C6.47 22 2 17.5 2 12A10 10 0 0 1 12 2m.5 5v5.25l4.5 2.67-.75 1.23L11 13V7z"/></svg>
                           <span class="md-ellipsis">
                             
-                              5 min de leitura
+                              2 min de leitura
                             
                           </span>
                         </div>
@@ -629,7 +638,7 @@
       
       
       
-        <span class="md-tag">joins</span>
+        <span class="md-tag">fundamentos</span>
       
     
       
@@ -643,20 +652,76 @@
 
 
 
-<h1 id="joins-em-sql-na-pratica">Joins em SQL na prática</h1>
-<p>Entendendo como combinar tabelas e evitar erros comuns nas consultas.</p>
+<h1 id="sql-entendendo-a-linguagem-de-consulta-estruturada">SQL: entendendo a linguagem de consulta estruturada</h1>
+<p>Hoje comecei a estudar SQL e quis registrar aqui alguns dos conceitos que estou aprendendo.</p>
 <!-- more -->
 
-<h2 id="o-problema-que-os-joins-resolvem">O problema que os joins resolvem</h2>
-<p>Dados raramente vivem em uma única tabela. Separar informações em tabelas relacionadas evita repetição e mantém tudo consistente — mas isso significa que, na hora de consultar, é preciso juntar essas tabelas de volta.</p>
-<h2 id="os-tipos-mais-comuns">Os tipos mais comuns</h2>
+<h2 id="o-que-e-sql">O que é SQL?</h2>
+<p>SQL (<em>Structured Query Language</em>, ou Linguagem de Consulta Estruturada) é uma linguagem universal, utilizada em sistemas de banco de dados. Ela foi criada pela IBM por volta de 1970.</p>
+<h2 id="por-que-o-sql-surgiu">Por que o SQL surgiu</h2>
+<p>Antigamente, os relatórios eram feitos em papel, e as empresas tinham salas lotadas de armários de documentos. Com a popularização dos computadores e dos bancos de dados para armazenar essas informações, surgiu a necessidade de uma linguagem capaz de lidar com um grande volume de dados. Assim nasceu o SQL.</p>
+<p>Hoje ele é utilizado para:</p>
 <ul>
-<li><code>INNER JOIN</code> — retorna só as linhas que têm correspondência nas duas tabelas.</li>
-<li><code>LEFT JOIN</code> — retorna tudo da tabela da esquerda, com <code>NULL</code> onde não houver correspondência.</li>
-<li><code>RIGHT JOIN</code> e <code>FULL JOIN</code> — menos usados no dia a dia, mas úteis em casos específicos.</li>
+<li>criar tabelas;</li>
+<li>atualizar dados;</li>
+<li>consultar informações de várias tabelas;</li>
+<li>excluir dados, entre outras tarefas.</li>
 </ul>
-<h2 id="erro-comum-duplicacao-de-linhas">Erro comum: duplicação de linhas</h2>
-<p>Um <code>JOIN</code> mal condicionado pode multiplicar linhas silenciosamente, inflando somas e contagens sem gerar erro nenhum. Sempre vale checar o número de linhas antes e depois do join.</p>
+<h2 id="elementos-do-sql">Elementos do SQL</h2>
+<p>Dentro do SQL, temos alguns elementos:</p>
+<table>
+<thead>
+<tr>
+<th>Elemento</th>
+<th>O que é</th>
+<th>Exemplos</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comandos</td>
+<td>As ações que executamos</td>
+<td><code>SELECT</code>, <code>INSERT</code>, <code>UPDATE</code>, <code>DELETE</code></td>
+</tr>
+<tr>
+<td>Cláusulas</td>
+<td>As partes que compõem os comandos</td>
+<td><code>FROM</code>, <code>WHERE</code>, <code>GROUP BY</code></td>
+</tr>
+<tr>
+<td>Expressões</td>
+<td>Operações e cálculos</td>
+<td><code>A + B</code>, <code>A * B</code></td>
+</tr>
+<tr>
+<td>Predicados</td>
+<td>Condições a serem avaliadas</td>
+<td><code>A &gt; B</code>, <code>C BETWEEN 50 AND 100</code></td>
+</tr>
+<tr>
+<td>Queries</td>
+<td>Consultas que formamos usando as cláusulas anteriores, para obter o resultado esperado</td>
+<td><code>SELECT coluna FROM tabela</code></td>
+</tr>
+</tbody>
+</table>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">nome</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="p">;</span>
+</code></pre></div>
+<p>Nesse caso:</p>
+<ul>
+<li><strong>SELECT</strong> indica quais informações queremos obter.</li>
+<li><strong>FROM</strong> indica de qual tabela essas informações serão buscadas.</li>
+</ul>
+<p>Então podemos interpretar a consulta como:</p>
+<blockquote>
+<p>"Selecione a coluna <code>nome</code> da tabela <code>clientes</code>."</p>
+</blockquote>
+<h2 id="chaves-como-as-tabelas-se-relacionam">Chaves: como as tabelas se relacionam</h2>
+<p>Dentro do SQL existem estruturas muito importantes: a <strong>chave primária</strong> (<em>Primary Key</em>) e a <strong>chave estrangeira</strong> (<em>Foreign Key</em>). Elas garantem a integridade dos relacionamentos entre as tabelas.</p>
+<p>Cada tabela precisa de um identificador único. Em uma tabela de clientes, por exemplo, cada cliente é identificado por uma chave única, que não se repete. Exemplos bastante usados são o ID do cliente e o CPF.</p>
+<p>A chave estrangeira, por sua vez, é o campo que aponta para a chave primária de outra tabela, criando a ligação entre elas.</p>
 
 
 
