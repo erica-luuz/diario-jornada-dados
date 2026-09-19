@@ -1,5 +1,5 @@
 ---
-date: 2026-09-19
+date: 2026-09-19 09:00:00
 slug: minha-jornada-pelo-universo-dos-dados
 authors:
   - erica

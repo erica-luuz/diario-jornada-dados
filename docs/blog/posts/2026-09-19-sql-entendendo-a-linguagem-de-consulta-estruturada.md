@@ -1,5 +1,5 @@
 ---
-date: 2026-09-19
+date: 2026-09-19 15:00:00
 slug: sql-entendendo-a-linguagem-de-consulta-estruturada
 authors:
   - erica
