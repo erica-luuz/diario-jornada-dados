@@ -13,7 +13,13 @@ mkdocs serve
 
 Depois abra http://127.0.0.1:8000 no navegador.
 
-## Como criar um novo post
+## Atalhos (clique duplo na pasta do projeto)
+
+- `novo-post.bat` — pergunta título, categoria e tags, e cria o arquivo do post já com data de hoje.
+- `visualizar.bat` — abre o site no navegador para conferir antes de publicar.
+- `publicar.bat` — confere o site, salva no GitHub e atualiza o site ao vivo.
+
+## Como criar um novo post (manualmente)
 
 Adicione um arquivo em `docs/blog/posts/AAAA-MM-DD-titulo.md`, seguindo o modelo do post existente (cabeçalho com `date`, `authors`, `categories`, `tags`).
 
