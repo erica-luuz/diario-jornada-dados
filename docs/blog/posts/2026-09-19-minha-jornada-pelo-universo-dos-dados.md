@@ -12,10 +12,14 @@ description: O primeiro registro do meu diário de estudos em dados.
 
 # Minha jornada pelo universo dos dados
 
-Este é o primeiro registro do meu diário de estudos em dados. A partir daqui, vou documentar minha evolução ao longo dessa jornada: os conceitos que estou aprendendo, os exercícios que estou realizando, os erros que encontrar e as descobertas que surgirem pelo caminho.
+Este espaço foi criado para reunir tudo o que estou estudando sobre dados. Mesmo já estando nessa jornada, percebi que registrar o conteúdo é uma forma importante de organizar meus conhecimentos e facilitar minhas revisões.
+
+Aqui, vou anotar conceitos, exemplos, exercícios, descobertas e dúvidas ao longo do caminho. Afinal, nem sempre conseguimos lembrar de tudo o que aprendemos — e ter essas informações registradas torna o processo de estudo mais leve, organizado e eficiente.
 
 <!-- more -->
 
 ## Por que este diário existe
 
-Aprender algo novo é também construir um repertório de referências para consultar no futuro. Por isso, quero transformar este espaço em um registro do meu processo — um lugar para revisitar conteúdos, acompanhar minha evolução e compartilhar essa caminhada com quem também se interessa pelo universo dos dados.
+Aprender não significa apenas consumir conteúdos, mas também conseguir revisitá-los, compreendê-los e aplicá-los no futuro. Por isso, quero transformar este espaço em uma espécie de base de conhecimento pessoal, onde poderei consultar assuntos importantes sempre que necessário.
+
+Mais do que acompanhar uma evolução, este diário será um apoio para os meus estudos e uma forma de tornar o conhecimento mais acessível para mim mesma.
