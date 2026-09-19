@@ -17,6 +17,14 @@ Depois abra http://127.0.0.1:8000 no navegador.
 
 Adicione um arquivo em `docs/blog/posts/AAAA-MM-DD-titulo.md`, seguindo o modelo do post existente (cabeçalho com `date`, `authors`, `categories`, `tags`).
 
+## Como colocar imagens em um post
+
+Salve o arquivo em `docs/assets/images/` e referencie no post assim (o caminho abaixo vale para posts em `docs/blog/posts/`):
+
+```markdown
+![Descrição da imagem](../../assets/images/nome-do-arquivo.png)
+```
+
 ## Como publicar no GitHub Pages
 
 ```bash
