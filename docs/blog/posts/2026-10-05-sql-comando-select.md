@@ -91,6 +91,10 @@ FROM produtos;
 
 Nesse caso, além de trazer `quantidade` e `preco`, estou criando uma nova coluna chamada `total`, calculada pela multiplicação das duas.
 
+### Mapa mental
+
+![Mapa mental sobre o comando SELECT](../../assets/images/mapa-mental-select.png)
+
 ### Resumindo
 
 O `SELECT` é uma das principais ferramentas para trabalhar com dados em SQL. Com ele podemos:
