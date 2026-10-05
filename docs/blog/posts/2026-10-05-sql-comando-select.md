@@ -95,6 +95,8 @@ Nesse caso, além de trazer `quantidade` e `preco`, estou criando uma nova colun
 
 ![Mapa mental sobre o comando SELECT](../../assets/images/mapa-mental-select.png)
 
+[:material-download: Baixar o mapa mental](../../assets/images/mapa-mental-select.png){ .md-button download="mapa-mental-select.png" }
+
 ### Resumindo
 
 O `SELECT` é uma das principais ferramentas para trabalhar com dados em SQL. Com ele podemos:
