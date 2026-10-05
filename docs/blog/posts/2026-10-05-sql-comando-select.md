@@ -8,6 +8,7 @@ categories:
 tags:
   - sql
   - select
+  - mapa-mental
 description: "Como consultar, limitar e calcular dados com o comando SELECT."
 ---
 
