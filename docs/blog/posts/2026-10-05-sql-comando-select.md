@@ -1,7 +1,6 @@
 ---
 date: 2026-10-05
 slug: sql-comando-select
-draft: true
 authors:
   - erica
 categories:
