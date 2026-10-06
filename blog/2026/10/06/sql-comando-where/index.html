@@ -6,17 +6,15 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
-        <meta name="description" content="Como consultar, limitar e calcular dados com o comando SELECT.">
+        <meta name="description" content="Como filtrar registros com WHERE, IN e LIKE.">
       
       
         <meta name="author" content="Érica Luz">
       
       
       
-        <link rel="prev" href="../../../09/19/sql-entendendo-a-linguagem-de-consulta-estruturada/">
+        <link rel="prev" href="../../05/sql-comando-select/">
       
-      
-        <link rel="next" href="../../06/sql-comando-where/">
       
       
         
@@ -27,7 +25,7 @@
     
     
       
-        <title>SQL — Comando SELECT - Diário da Jornada de Dados</title>
+        <title>SQL — Comando WHERE - Diário da Jornada de Dados</title>
       
     
     
@@ -74,7 +72,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sql-comando-select" class="md-skip">
+        <a href="#sql-comando-where" class="md-skip">
           Pular para conteúdo
         </a>
       
@@ -110,7 +108,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SQL — Comando SELECT
+              SQL — Comando WHERE
             
           </span>
         </div>
@@ -491,10 +489,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#selecionando-todas-as-colunas" class="md-nav__link">
+  <a href="#textos-e-numeros" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecionando todas as colunas
+        Textos e números
       
     </span>
   </a>
@@ -502,10 +500,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#selecionando-apenas-algumas-colunas" class="md-nav__link">
+  <a href="#filtrando-varios-valores-com-in" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Selecionando apenas algumas colunas
+        Filtrando vários valores com IN
       
     </span>
   </a>
@@ -513,10 +511,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#utilizando-o-limit" class="md-nav__link">
+  <a href="#utilizando-like-e-os-curingas" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Utilizando o LIMIT
+        Utilizando LIKE e os curingas
       
     </span>
   </a>
@@ -524,10 +522,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#o-select-tambem-pode-fazer-calculos" class="md-nav__link">
+  <a href="#o-que-estou-aprendendo-com-o-where" class="md-nav__link">
     <span class="md-ellipsis">
       
-        O SELECT também pode fazer cálculos
+        O que estou aprendendo com o WHERE
       
     </span>
   </a>
@@ -539,17 +537,6 @@
     <span class="md-ellipsis">
       
         Mapa mental
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#resumindo" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Resumindo
       
     </span>
   </a>
@@ -612,7 +599,7 @@
                     <li class="md-nav__item">
                       <div class="md-nav__link">
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 19H5V8h14m-3-7v2H8V1H6v2H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-1V1m-1 11h-5v5h5z"/></svg>
-                        <time datetime="2026-10-05 00:00:00+00:00" class="md-ellipsis">5 de outubro de 2026</time>
+                        <time datetime="2026-10-06 00:00:00+00:00" class="md-ellipsis">6 de outubro de 2026</time>
                       </div>
                     </li>
                     
@@ -669,86 +656,106 @@
       
       
       
-        <span class="md-tag">select</span>
+        <span class="md-tag">sql</span>
       
     
       
       
       
       
-        <span class="md-tag">sql</span>
+        <span class="md-tag">where</span>
       
     
   </nav>
 
 
 
-<h1 id="sql-comando-select">SQL — Comando SELECT</h1>
-<p>O comando <strong>SELECT</strong> é um dos comandos mais importantes e mais utilizados em SQL. Ele é usado principalmente para <strong>consultar e visualizar dados</strong> armazenados nas tabelas de um banco de dados.</p>
+<h1 id="sql-comando-where">SQL — Comando WHERE</h1>
+<p>Quando queremos utilizar um filtro em uma consulta, utilizamos o comando <strong>WHERE</strong>.</p>
+<p>Por exemplo:</p>
+<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">cidade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'SP'</span><span class="p">;</span>
+</code></pre></div>
+<p>Nesse caso, estamos dizendo:</p>
+<blockquote>
+<p>"Selecione todas as colunas da tabela <code>clientes</code> onde a coluna <code>cidade</code> seja igual a <code>SP</code>."</p>
+</blockquote>
+<p>O resultado será somente os registros dos clientes cuja cidade possui o valor <code>SP</code>.</p>
 <!-- more -->
 
-<p>Além de consultar informações, o <code>SELECT</code> também é muito útil para <strong>conferir os dados antes de realizar alterações ou exclusões</strong>, ajudando a evitar erros.</p>
-<h3 id="selecionando-todas-as-colunas">Selecionando todas as colunas</h3>
+<h2 id="textos-e-numeros">Textos e números</h2>
+<p>Uma coisa importante é observar o tipo de dado que estamos utilizando no filtro.</p>
+<p>Quando estamos filtrando textos, normalmente colocamos o valor entre aspas simples:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">cidade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'SP'</span>
+</code></pre></div>
+<p>Já quando estamos trabalhando com números, não precisamos utilizar aspas:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">30</span>
+</code></pre></div>
+<p>Isso acontece porque <code>SP</code> é um texto, enquanto <code>30</code> é um número.</p>
+<h2 id="filtrando-varios-valores-com-in">Filtrando vários valores com IN</h2>
+<p>E se eu quiser buscar vários valores diferentes na mesma coluna? Podemos utilizar o comando <strong>IN</strong>.</p>
 <p>Por exemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="p">;</span>
-</code></pre></div>
-<p>Nesse caso, estou dizendo:</p>
-<blockquote>
-<p>"Selecione todas as colunas da tabela <code>clientes</code>."</p>
-</blockquote>
-<p>O <code>*</code> significa <strong>todas as colunas</strong>.</p>
-<h3 id="selecionando-apenas-algumas-colunas">Selecionando apenas algumas colunas</h3>
-<p>Também posso escolher exatamente quais informações quero consultar:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="n">idcliente</span><span class="p">,</span><span class="w"> </span><span class="n">dtnascliente</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span><span class="p">;</span>
-</code></pre></div>
-<p>Nesse caso, quero visualizar somente as colunas <code>idcliente</code> e <code>dtnascliente</code> da tabela <code>clientes</code>.</p>
-<p>Isso é interessante porque nem sempre precisamos trazer todas as informações de uma tabela.</p>
-<h3 id="utilizando-o-limit">Utilizando o LIMIT</h3>
-<p>Quando estou explorando uma tabela pela primeira vez, pode ser interessante limitar a quantidade de registros retornados.</p>
-<p>Imagine que a tabela <code>clientes</code> tenha <strong>5.000 registros</strong>. Em vez de consultar todos eles, posso fazer:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
 <span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
 </code></pre></div>
-<p>Assim, o banco retornará <strong>no máximo 10 registros</strong>.</p>
-<p>O <code>LIMIT</code> pode ser muito útil para conhecer a estrutura e os dados de uma tabela sem precisar visualizar milhares de registros de uma só vez.</p>
-<blockquote>
-<p>⚠️ Importante: <code>LIMIT 10</code> não significa que o banco escolherá 10 registros aleatórios. Sem utilizar um <code>ORDER BY</code>, não devemos assumir uma ordem específica para os registros retornados.</p>
-</blockquote>
-<p>Por exemplo, se eu quiser os 10 primeiros clientes de acordo com o <code>idcliente</code>, posso fazer:</p>
+<p>Nesse caso, estou buscando os registros em que a idade seja 3, 6 ou 9.</p>
+<p>O <code>IN</code> funciona como uma forma mais prática de escrever várias condições de igualdade. Em vez de:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">3</span>
+<span class="w">   </span><span class="k">OR</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span>
+<span class="w">   </span><span class="k">OR</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">9</span>
+</code></pre></div>
+<p>podemos escrever:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">);</span>
+</code></pre></div>
+<h2 id="utilizando-like-e-os-curingas">Utilizando LIKE e os curingas</h2>
+<p>Outra possibilidade interessante do <code>WHERE</code> é utilizar o <strong>LIKE</strong> para procurar textos que seguem determinado padrão.</p>
+<p>O símbolo <code>%</code> funciona como um coringa, representando qualquer quantidade de caracteres. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">clientes</span>
-<span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">idcliente</span>
-<span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span>
+<span class="k">FROM</span><span class="w"> </span><span class="n">produtos</span>
+<span class="k">WHERE</span><span class="w"> </span><span class="n">descricao</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'Alto%'</span><span class="p">;</span>
 </code></pre></div>
-<p>Nesse caso, primeiro os registros são ordenados pelo <code>idcliente</code> e depois limitados aos 10 primeiros.</p>
-<h3 id="o-select-tambem-pode-fazer-calculos">O SELECT também pode fazer cálculos</h3>
-<p>O <code>SELECT</code> não serve apenas para consultar colunas que já existem na tabela. Também podemos utilizar <strong>expressões e funções para realizar cálculos e até criar novas colunas no resultado da consulta</strong>.</p>
-<p>Por exemplo:</p>
-<div class="highlight"><pre><span></span><code><span class="k">SELECT</span><span class="w"> </span>
-<span class="w">    </span><span class="n">quantidade</span><span class="p">,</span>
-<span class="w">    </span><span class="n">preco</span><span class="p">,</span>
-<span class="w">    </span><span class="n">quantidade</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="n">preco</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">total</span>
-<span class="k">FROM</span><span class="w"> </span><span class="n">produtos</span><span class="p">;</span>
-</code></pre></div>
-<p>Nesse caso, além de trazer <code>quantidade</code> e <code>preco</code>, estou criando uma nova coluna chamada <code>total</code>, calculada pela multiplicação das duas.</p>
-<h3 id="mapa-mental">Mapa mental</h3>
-<p><img alt="Mapa mental sobre o comando SELECT" src="../../../../../assets/images/mapa-mental-select.png" /></p>
-<p><a class="md-button" download="mapa-mental-select.png" href="../../../../../assets/images/mapa-mental-select.png"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar o mapa mental</a></p>
-<h3 id="resumindo">Resumindo</h3>
-<p>O <code>SELECT</code> é uma das principais ferramentas para trabalhar com dados em SQL. Com ele podemos:</p>
+<p>Nesse caso, estou procurando descrições que começam com "Alto". Poderíamos encontrar, por exemplo:</p>
 <ul>
-<li>Consultar dados;</li>
-<li>Selecionar determinadas colunas;</li>
-<li>Consultar todas as colunas usando <code>*</code>;</li>
-<li>Limitar a quantidade de registros com <code>LIMIT</code>;</li>
-<li>Ordenar os resultados com <code>ORDER BY</code>;</li>
-<li>Realizar cálculos;</li>
-<li>Criar colunas calculadas utilizando <code>AS</code>;</li>
-<li>Conferir informações antes de realizar alterações ou exclusões.</li>
+<li>Alto-falante</li>
+<li>Alto rendimento</li>
+<li>Alto padrão</li>
 </ul>
-<p>Para quem está começando a estudar SQL, entender bem o <code>SELECT</code> é fundamental, porque ele será utilizado constantemente nas consultas ao banco de dados.</p>
+<p>Também podemos colocar o <code>%</code> antes da palavra:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">descricao</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%Alto'</span><span class="p">;</span>
+</code></pre></div>
+<p>Nesse caso, estamos procurando valores que terminam com "Alto".</p>
+<p>E podemos colocar o <code>%</code> dos dois lados:</p>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">descricao</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%Alto%'</span><span class="p">;</span>
+</code></pre></div>
+<p>Aqui, estamos procurando valores que contenham "Alto" em qualquer parte do texto.</p>
+<h2 id="o-que-estou-aprendendo-com-o-where">O que estou aprendendo com o WHERE</h2>
+<p>O <code>WHERE</code> é um comando muito importante porque permite deixar nossas consultas mais específicas. Com ele, podemos começar com uma tabela cheia de informações e fazer perguntas mais direcionadas aos dados.</p>
+<p>Por exemplo:</p>
+<ul>
+<li>Quais clientes são de SP?</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">cidade</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s1">'SP'</span>
+</code></pre></div>
+<ul>
+<li>Quais clientes têm idade 3, 6 ou 9?</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">idade</span><span class="w"> </span><span class="k">IN</span><span class="w"> </span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">,</span><span class="w"> </span><span class="mi">9</span><span class="p">)</span>
+</code></pre></div>
+<ul>
+<li>Quais produtos possuem "Alto" em sua descrição?</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="k">WHERE</span><span class="w"> </span><span class="n">descricao</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">'%Alto%'</span>
+</code></pre></div>
+<p>Estou percebendo que, conforme avanço nos estudos de SQL, os comandos começam a se combinar e a consulta passa a ficar cada vez mais poderosa.</p>
+<blockquote>
+<p><code>SELECT</code> mostra o que quero consultar.</p>
+<p><code>WHERE</code> define quais registros quero encontrar.</p>
+</blockquote>
+<h2 id="mapa-mental">Mapa mental</h2>
+<p><img alt="Mapa mental sobre o comando WHERE" src="../../../../../assets/images/mapa-mental-where.png" /></p>
+<p><a class="md-button" download="mapa-mental-where.png" href="../../../../../assets/images/mapa-mental-where.png"><span class="twemoji"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M5 20h14v-2H5m14-9h-4V3H9v6H5l7 7z"/></svg></span> Baixar o mapa mental</a></p>
 
 
 
