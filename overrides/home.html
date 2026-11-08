@@ -37,56 +37,42 @@
       </div>
     </section>
 
+    {% set blog_plugin = config.plugins.get("material/blog") %}
+    {% set latest_posts = blog_plugin.blog.posts[:3] if blog_plugin else [] %}
+    {% set home_category_urls = {} %}
+    {% if blog_plugin %}
+      {% for post in blog_plugin.blog.posts %}
+        {% for cat in post.categories %}
+          {% set _ = home_category_urls.update({cat.title: cat.url}) %}
+        {% endfor %}
+      {% endfor %}
+    {% endif %}
+
     <section class="diario-section diario-topics" aria-labelledby="topicos-titulo">
       <p class="diario-section__eyebrow">Explorar</p>
       <h2 class="diario-section__title" id="topicos-titulo">O que estou estudando</h2>
       <p class="diario-section__lead">Os principais temas que venho aprofundando na minha jornada em dados.</p>
       <div class="diario-topics__grid">
-        <a class="diario-topic-card" style="--diario-topic-color:#4F6FAE" href="{{ 'blog/category/python/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/language-python.svg" %}</span>
-          <p class="diario-topic-card__title">Python</p>
-          <p class="diario-topic-card__desc">Manipulação de dados, automação e primeiros scripts.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#253B6E" href="{{ 'blog/category/sql/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/database.svg" %}</span>
-          <p class="diario-topic-card__title">SQL</p>
-          <p class="diario-topic-card__desc">Consultas, joins e boas práticas em bancos de dados.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#E98268" href="{{ 'blog/category/power-bi/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/monitor-dashboard.svg" %}</span>
-          <p class="diario-topic-card__title">Power BI</p>
-          <p class="diario-topic-card__desc">Dashboards, modelagem e visualização interativa.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#F4C95D" href="{{ 'blog/category/estatistica/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/chart-bell-curve.svg" %}</span>
-          <p class="diario-topic-card__title">Estatística</p>
-          <p class="diario-topic-card__desc">Fundamentos que sustentam toda análise de dados.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#4F6FAE" href="{{ 'blog/category/engenharia-de-dados/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/server-network.svg" %}</span>
-          <p class="diario-topic-card__title">Engenharia de Dados</p>
-          <p class="diario-topic-card__desc">Pipelines, ETL e organização de dados na origem.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#E98268" href="{{ 'blog/category/projetos/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/rocket-launch-outline.svg" %}</span>
-          <p class="diario-topic-card__title">Projetos</p>
-          <p class="diario-topic-card__desc">Estudos de caso e aplicações práticas do que aprendo.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#253B6E" href="{{ 'blog/category/visualizacao-de-dados/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/chart-areaspline.svg" %}</span>
-          <p class="diario-topic-card__title">Visualização de Dados</p>
-          <p class="diario-topic-card__desc">Gráficos e painéis que contam histórias com clareza.</p>
-        </a>
-        <a class="diario-topic-card" style="--diario-topic-color:#F4C95D" href="{{ 'blog/category/carreira-e-aprendizado/' | url }}">
-          <span class="diario-topic-card__icon">{% include ".icons/material/school.svg" %}</span>
-          <p class="diario-topic-card__title">Carreira e Aprendizado</p>
-          <p class="diario-topic-card__desc">Reflexões sobre estudo, transição e evolução profissional.</p>
-        </a>
+        {% set home_topics = [
+          {"name": "Python", "icon": "material/language-python", "color": "#4F6FAE", "desc": "Manipulação de dados, automação e primeiros scripts."},
+          {"name": "SQL", "icon": "material/database", "color": "#253B6E", "desc": "Consultas, joins e boas práticas em bancos de dados."},
+          {"name": "Power BI", "icon": "material/monitor-dashboard", "color": "#E98268", "desc": "Dashboards, modelagem e visualização interativa."},
+          {"name": "Estatística", "icon": "material/chart-bell-curve", "color": "#F4C95D", "desc": "Fundamentos que sustentam toda análise de dados."},
+          {"name": "Engenharia de Dados", "icon": "material/server-network", "color": "#4F6FAE", "desc": "Pipelines, ETL e organização de dados na origem."},
+          {"name": "Projetos", "icon": "material/rocket-launch-outline", "color": "#E98268", "desc": "Estudos de caso e aplicações práticas do que aprendo."},
+          {"name": "Visualização de Dados", "icon": "material/chart-areaspline", "color": "#253B6E", "desc": "Gráficos e painéis que contam histórias com clareza."},
+          {"name": "Carreira e Aprendizado", "icon": "material/school", "color": "#F4C95D", "desc": "Reflexões sobre estudo, transição e evolução profissional."}
+        ] %}
+        {% for topic in home_topics %}
+          <a class="diario-topic-card" style="--diario-topic-color:{{ topic.color }}" href="{{ home_category_urls.get(topic.name) | default('topicos/', true) | url }}">
+            <span class="diario-topic-card__icon">{% include ".icons/" ~ topic.icon ~ ".svg" %}</span>
+            <p class="diario-topic-card__title">{{ topic.name }}</p>
+            <p class="diario-topic-card__desc">{{ topic.desc }}</p>
+          </a>
+        {% endfor %}
       </div>
     </section>
 
-    {% set blog_plugin = config.plugins.get("material/blog") %}
-    {% set latest_posts = blog_plugin.blog.posts[:3] if blog_plugin else [] %}
     {% set diario_category_icons = {
       "Python": {"icon": "material/code-tags", "color": "#4F6FAE"},
       "SQL": {"icon": "material/table", "color": "#253B6E"},
