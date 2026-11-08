@@ -200,7 +200,7 @@ h1, h2, h3, h4,
 /* Elemento decorativo: cartões-tag flutuando estilo caderno */
 .diario-hero__visual {
   position: relative;
-  height: 17.5rem;
+  height: 15rem;
 }
 
 .diario-tagcard {
@@ -230,7 +230,7 @@ h1, h2, h3, h4,
 .diario-tagcard--3 { top: 7.2rem; left: 2.4rem; transform: rotate(-2deg); }
 .diario-tagcard--4 { top: 10.6rem; left: 10.5rem; transform: rotate(4deg); background: var(--diario-coral); color: #fff; }
 .diario-tagcard--4 svg { fill: #fff; }
-.diario-tagcard--5 { top: 14.2rem; left: 4.6rem; transform: rotate(-3deg); background: var(--diario-blue-medium); color: #fff; }
+.diario-tagcard--5 { top: 0.5rem; left: 15rem; transform: rotate(3deg); background: var(--diario-blue-medium); color: #fff; }
 .diario-tagcard--5 svg { fill: #fff; }
 
 /* ---------- Tópicos ---------- */
